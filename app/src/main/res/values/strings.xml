@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SpinMe</string>
+    <string name="hello_world">Lay the phone down flat, and hit the button that you want to spin for&#8230;</string>
+    <string name="action_settings">Settings</string>
+    <string name="button1">Who is being rude?</string>
+    <string name="button2">Who is the funniest?</string>
+    <string name="button3">Who goes first?</string>
+    <string name="button4">Who is making tea?</string>
+    <string name="unknown">Undefined Instruction</string>
+    <string name="title_activity_display_spinner">Launch the Spinner</string>
+    <string name="arrow">this is an arrow</string>
+</resources>
