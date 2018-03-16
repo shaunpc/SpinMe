@@ -3,7 +3,6 @@ package com.spc.spinme;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -13,7 +12,6 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
-import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -22,8 +20,7 @@ import java.util.Random;
 
 public class DisplaySpinnerActivity extends Activity {
 
-    public final static String EXTRA_MESSAGE = "com.spc.spinme.MESSAGE";
-    private final static String DEBUG_TAG = "SpinMe:DisplaySpinnerActivity:";
+    private final static String DEBUG_TAG = "SpinMe:Display:";
     private GestureDetectorCompat mDetector;
     public ImageView image;
 
@@ -34,7 +31,7 @@ public class DisplaySpinnerActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_display_spinner);
-        image=(ImageView)findViewById(R.id.imageView1);
+        image=findViewById(R.id.imageView1);
 
         Log.d(DEBUG_TAG,"setting GestureDetector");
         mDetector = new GestureDetectorCompat(this, new MyGestureListener());
@@ -162,16 +159,13 @@ public class DisplaySpinnerActivity extends Activity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+		return id == R.id.action_settings || super.onOptionsItemSelected(item);
 	}
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
 
-        int action = MotionEventCompat.getActionMasked(event);
+        int action = event.getActionMasked();
         this.mDetector.onTouchEvent(event);
 
         switch(action) {
